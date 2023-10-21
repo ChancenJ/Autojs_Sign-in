@@ -70,7 +70,8 @@ function daojucheng() {
   sleep(2000);
 
 
-
+  youlixiang();//有理想
+  sleep(3000);
   libaodaren();//礼包达人
   sleep(3000);
   xianshihuodong();//限时活动
@@ -79,6 +80,7 @@ function daojucheng() {
   sleep(3000);
   huodongzhongxin();//打卡活动中心
   sleep(3000);
+
   dakaibaoxiang();//打开宝箱1
   sleep(3000);
   dakaibaoxiang();//打开宝箱2
@@ -238,4 +240,49 @@ function xianshihuodong() {
     toastLog("完成限时活动");
   }
 
+}
+
+function youlixiang() {
+  if (descContains("有理想").exists()) {
+    var title = descContains("有理想").findOne();
+    console.log("有理想");
+    sleep(500);
+    if (desc("去完成").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).exists()) {
+      var go = desc("去完成").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).findOne();
+      go.click();
+      sleep(3000);
+      var sy = desc("手游").findOne();
+      click(sy.bounds().centerX(), sy.bounds().centerY());
+      sleep(2000);
+      var cf = descContains("穿越火线：").findOne();
+      click(cf.bounds().centerX(), cf.bounds().centerY());
+      sleep(2000);
+      var gx = boundsInside(258, 1950, 342, 2034).clickable(true).findOne();
+      gx.click();
+      sleep(2000);
+      var qr = desc("确认").findOne();
+      click(qr.bounds().centerX(), qr.bounds().centerY());
+      sleep(2000);
+      var xz = descContains("8.3折").findOne();
+      click(xz.bounds().centerX(), xz.bounds().centerY());
+      sleep(2000);
+      var xy = descContains("我要许愿").boundsInside(0, 7*device.height/8, device.width, device.height).findOne();
+      click(xy.bounds().centerX(), xy.bounds().centerY());
+      sleep(5000);
+      back();
+      sleep(2000);
+      back();
+    }
+    sleep(2000);
+    title = descContains("有理想").findOne();
+    sleep(300);
+    if (desc("领取奖励").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).exists()) {
+      console.log("领取奖励");
+      desc("领取奖励").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).click();
+      sleep(2000);
+      desc("开心收下").click();
+    }
+    sleep(300);
+    toastLog("完成有理想");
+  }
 }
