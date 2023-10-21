@@ -3,18 +3,23 @@
 ui.layout(
   <vertical padding="16">
     <Switch id="autoService" text="无障碍服务" checked="{{auto.service != null}}" margin="5 10" textSize="16sp" />
+    <radiogroup>
+      <radio id="r1" text="掌上道聚城" checked="true" />
+    </radiogroup>
     <button id="start" text="开始运行" />
   </vertical>
 );
 
 ui.start.on("click", () => {
-  if(auto.service == null){
+  if (auto.service == null) {
     toast("请开启无障碍服务！")
   }
 
   if (ui.start.getText() == "开始运行") {
     ui.start.setText("停止运行");
-    threads.start(launch);
+    if (ui.r1.checked == true) {
+      threads.start(daojucheng);
+    }
     device.keepScreenOn()//保持屏幕常亮
   } else {
     ui.start.setText("开始运行");
@@ -26,12 +31,13 @@ ui.start.on("click", () => {
 });
 
 
-function launch() {
+function daojucheng() {
   setScreenMetrics(1440, 3200);
-  var sex = dialogs.singleChoice("请选择应用", ["掌上道聚城", "test"], 0);
-  toast("选择了第" + (sex + 1) + "个选项");
-  var applist = ["掌上道聚城", "test"];
-  launchApp(applist[sex]);
+  //var sex = dialogs.singleChoice("请选择应用", ["掌上道聚城", "test"], 0);
+  //toast("选择了第" + (sex + 1) + "个选项");
+  //var applist = ["掌上道聚城", "test"];
+  toastLog("启动掌上道聚城")
+  launchApp("掌上道聚城");
   //console.show();
   //console.setSize(device.width / 2, device.height / 6);
   sleep(5000);
