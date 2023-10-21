@@ -1,0 +1,55 @@
+{
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "assets": [
+    {
+      "form": "/storage/emulated/0/脚本/道聚城签到",
+      "to": "/project"
+    }
+  ],
+  "buildDir": "build",
+  "build": {
+    "build_id": null,
+    "build_number": 0,
+    "build_time": 0
+  },
+  "useFeatures": [],
+  "icon": "res/logo.png",
+  "ignoredDirs": [
+    "build"
+  ],
+  "launchConfig": {
+    "displaySplash": false,
+    "hideLauncher": false,
+    "hideLogs": false,
+    "stableMode": false,
+    "volumeUpcontrol": false,
+    "permissions": [
+      "accessibility_services"
+    ],
+    "serviceDesc": "使脚本自动操作(点击、长按、滑动等)的必要条件。",
+    "splashIcon": "res/splashIcon.png",
+    "splashText": "@ChancenJ"
+  },
+  "libs": [
+    "libjackpal-androidterm5.so",
+    "libjackpal-termexec2.so"
+  ],
+  "main": "main.js",
+  "name": "道聚城签到",
+  "outputPath": "/storage/emulated/0/脚本/道聚城签到/build",
+  "packageName": "com.script.qiandao",
+  "projectDirectory": "/storage/emulated/0/脚本/道聚城签到",
+  "scripts": {},
+  "signingConfig": {
+    "alias": "chancenj",
+    "keystore": "/storage/emulated/0/脚本/.keyStore/ChancenJ.keystore"
+  },
+  "sourcePath": "/storage/emulated/0/脚本/道聚城签到/main.js",
+  "versionCode": 1,
+  "versionName": "1.0.0.DEV"
+}
