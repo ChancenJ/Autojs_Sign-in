@@ -83,8 +83,6 @@ function launch() {
 
 
 
-//这样启动没有广告，有点android开发经验，贼爽
-//app.startActivity("com.tencent.djcity.weex.activity.NewBeanViewActivity");    
 
 function libaodaren() {
   if (desc("礼包达人").exists()) {
