@@ -57,7 +57,8 @@ daojucheng.start = function () {
     dakaibaoxiang();//打开宝箱2
     sleep(3000);
 
-    console.log("完成掌上道聚城");
+    toastLog("完成掌上道聚城");
+    home();
     sleep(500);
 }
 

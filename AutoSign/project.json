@@ -7,7 +7,7 @@
   ],
   "assets": [
     {
-      "form": "/storage/emulated/0/脚本/道聚城签到",
+      "form": "/storage/emulated/0/脚本/AutoSign",
       "to": "/project"
     }
   ],
@@ -41,15 +41,15 @@
   ],
   "main": "main.js",
   "name": "AutoSign",
-  "outputPath": "/storage/emulated/0/脚本/道聚城签到/build",
+  "outputPath": "/storage/emulated/0/脚本/AutoSign/build",
   "packageName": "com.script.qiandao",
-  "projectDirectory": "/storage/emulated/0/脚本/道聚城签到",
+  "projectDirectory": "/storage/emulated/0/脚本/AutoSign",
   "scripts": {},
   "signingConfig": {
     "alias": "chancenj",
     "keystore": "/storage/emulated/0/脚本/.keyStore/ChancenJ.keystore"
   },
-  "sourcePath": "/storage/emulated/0/脚本/道聚城签到/main.js",
+  "sourcePath": "/storage/emulated/0/脚本/AutoSign/main.js",
   "versionCode": 1,
-  "versionName": "1.1.0.DEV"
+  "versionName": "1.1.1.DEV"
 }

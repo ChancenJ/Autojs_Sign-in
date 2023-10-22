@@ -13,6 +13,7 @@ ui.layout(
     <checkbox id="r1" text="掌上道聚城" checked="true" />
     <checkbox id="r2" text="小米社区" checked="true" />
     <button id="start" text="开始运行" />
+    <button id="con" text="打开console" />
   </vertical>
 );
 
@@ -37,6 +38,20 @@ ui.start.on("click", () => {
     console.hide()
   }
 
+});
+
+ui.con.on("click", () => {
+  if (ui.con.getText() == "打开console") {
+    ui.con.setText("关闭console");
+    threads.start(function(){
+        console.show();
+        console.setPosition(700,50);
+        console.setSize(700,600);
+        })
+  }else{
+    ui.con.setText("打开console");
+    console.hide();
+  }
 });
 
 
