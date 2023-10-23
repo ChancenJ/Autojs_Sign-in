@@ -1,17 +1,19 @@
 //掌上道聚城签到、每日任务
+var common = require("./common");
+
 var daojucheng = {};
 
 daojucheng.start = function () {
     setScreenMetrics(1440, 3200);
-    //var sex = dialogs.singleChoice("请选择应用", ["掌上道聚城", "test"], 0);
-    //toast("选择了第" + (sex + 1) + "个选项");
-    //var applist = ["掌上道聚城", "test"];
     toastLog("启动掌上道聚城")
     sleep(2000);
     launchApp("掌上道聚城");
-    //console.show();
-    //console.setSize(device.width / 2, device.height / 6);
     sleep(5000);
+    
+    if (consoleon == false){
+        console.hide();
+        }
+    sleep(200);
     var wd = className("android.widget.RadioButton").text("我的").findOne();
     console.log("点击我的");
     sleep(500);
@@ -25,10 +27,8 @@ daojucheng.start = function () {
     click(jd.bounds().centerX(), jd.bounds().centerY());
 
     sleep(2000);
-    //console.hide();
     console.log("滑到底部")
     scrollDown();
-    //swipe(500, 1800, 500, 400, 150);
     sleep(800);
 
     if (desc("更多聚豆任务").exists()) {
@@ -57,9 +57,12 @@ daojucheng.start = function () {
     sleep(3000);
     dakaibaoxiang();//打开宝箱2
     sleep(3000);
-
     toast("完成掌上道聚城");
     console.info("完成掌上道聚城");
+    if (consoleon == false){
+        common.consoleshow();
+        }
+    sleep(500);
     home();
     sleep(500);
 }
@@ -106,7 +109,6 @@ function libaodaren() {
             sleep(2000);
             desc("开心收下").click();
         }
-        //console.show(true);
         sleep(300);
         //console.info("完成礼包达人");
         toastLog("完成礼包达人");
@@ -242,6 +244,17 @@ function youlixiang() {
             var xy = descContains("我要许愿").boundsInside(0, 7 * device.height / 8, device.width, device.height).findOne();
             click(xy.bounds().centerX(), xy.bounds().centerY());
             sleep(5000);
+            back();
+            sleep(2000);
+            var wdxy = boundsInside(1186,327,1381,534).clickable(true).findOne();
+            wdxy.click();
+            sleep(2000);
+            var sc = boundsInside(1285,463,1361,539).findOne();
+            click(sc.bounds().centerX(), sc.bounds().centerY());
+            sleep(2000);
+            var qr2 = text("确认").clickable(true).findOne();
+            qr2.click();
+            sleep(3000);
             back();
             sleep(2000);
             back();

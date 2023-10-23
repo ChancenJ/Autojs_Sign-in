@@ -1,11 +1,14 @@
 "ui";
 
+var common = require("./common.js");
 var daojucheng = require("./daojucheng.js");
 var xiaomishequ = require("./xiaomishequ.js");
+
 
 var running = null;
 var lock = threads.lock();
 
+var consoleon = false; //标记console是否强制打开
 
 ui.layout(
   <vertical padding="16">
@@ -46,18 +49,14 @@ ui.con.on("click", () => {
   if (ui.con.getText() == "打开console") {
     ui.con.setText("关闭console");
     threads.start(function(){
-        console.show();  
-        console.setTitle("签到","#ffd9d2e9",30);
-        console.setCanInput(false);
-        console.setBackgroud("#806741a7");
-        console.setLogSize(10);
-        console.setPosition(700,30);
-        sleep(10);
-        console.setSize(device.width/2,device.height/6);
+        common.consoleshow();
+        //sleep(10);
+        consoleon = true;
         })
   }else{
     ui.con.setText("打开console");
     console.hide();
+    consoleon = false;
   }
 });
 
