@@ -36,6 +36,8 @@ ui.start.on("click", () => {
     device.cancelKeepingAwake()//关闭屏幕常亮
     threads.shutDownAll()
     console.hide()
+    ui.finish();
+    exit();
   }
 
 });
@@ -44,9 +46,14 @@ ui.con.on("click", () => {
   if (ui.con.getText() == "打开console") {
     ui.con.setText("关闭console");
     threads.start(function(){
-        console.show();
-        console.setPosition(700,50);
-        console.setSize(700,600);
+        console.show();  
+        console.setTitle("签到","#ffd9d2e9",30);
+        console.setCanInput(false);
+        console.setBackgroud("#806741a7");
+        console.setLogSize(10);
+        console.setPosition(700,30);
+        sleep(10);
+        console.setSize(device.width/2,device.height/6);
         })
   }else{
     ui.con.setText("打开console");

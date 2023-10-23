@@ -22,14 +22,18 @@
   "ignoredDirs": [
     "build"
   ],
+  "encrypt-code": true,
   "launchConfig": {
-    "displaySplash": false,
+    "displaySplash": true,
+    "hideAccessibilityServices": false,
     "hideLauncher": false,
     "hideLogs": false,
     "stableMode": false,
     "volumeUpcontrol": false,
     "permissions": [
-      "accessibility_services"
+      "accessibility_services",
+      "background_start",
+      "draw_overlay"
     ],
     "serviceDesc": "使脚本自动操作(点击、长按、滑动等)的必要条件。",
     "splashIcon": "res/splashIcon.png",
@@ -51,5 +55,5 @@
   },
   "sourcePath": "/storage/emulated/0/脚本/AutoSign/main.js",
   "versionCode": 1,
-  "versionName": "1.1.1.DEV"
+  "versionName": "1.1.2.DEV"
 }

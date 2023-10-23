@@ -4,7 +4,7 @@ var xiaomishequ={};
 
 xiaomishequ.start=function(){
     toastLog("启动小米社区");
-    sleep(1000);
+    sleep(2000);
     launchApp("小米社区");
     sleep(5000);
     var qd = id("sign_button").findOne();
@@ -19,8 +19,10 @@ xiaomishequ.start=function(){
     if(textContains("已签到").exists()){
         toastLog("签到成功");
         sleep(1000);
-        toastLog("完成小米社区")
-        home()
+        toast("完成小米社区");
+        console.info("完成小米社区");
+        home();
+        sleep(500);
     }
 
 }

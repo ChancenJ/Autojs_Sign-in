@@ -7,7 +7,7 @@ daojucheng.start = function () {
     //toast("选择了第" + (sex + 1) + "个选项");
     //var applist = ["掌上道聚城", "test"];
     toastLog("启动掌上道聚城")
-    sleep(1000);
+    sleep(2000);
     launchApp("掌上道聚城");
     //console.show();
     //console.setSize(device.width / 2, device.height / 6);
@@ -27,8 +27,9 @@ daojucheng.start = function () {
     sleep(2000);
     //console.hide();
     console.log("滑到底部")
-    swipe(500, 1800, 500, 400, 150);
-    sleep(500);
+    scrollDown();
+    //swipe(500, 1800, 500, 400, 150);
+    sleep(800);
 
     if (desc("更多聚豆任务").exists()) {
         var t2 = desc("更多聚豆任务").findOne();
@@ -57,7 +58,8 @@ daojucheng.start = function () {
     dakaibaoxiang();//打开宝箱2
     sleep(3000);
 
-    toastLog("完成掌上道聚城");
+    toast("完成掌上道聚城");
+    console.info("完成掌上道聚城");
     home();
     sleep(500);
 }
