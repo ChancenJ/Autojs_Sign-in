@@ -3,6 +3,7 @@
 var common = require("./common.js");
 var daojucheng = require("./daojucheng.js");
 var xiaomishequ = require("./xiaomishequ.js");
+var zhangshangcf = require("./zhangshangcf.js");
 
 
 var running = null;
@@ -15,6 +16,7 @@ ui.layout(
     <Switch id="autoService" text="无障碍服务" checked="{{auto.service != null}}" margin="5 10" textSize="16sp" />
     <checkbox id="r1" text="掌上道聚城" checked="true" />
     <checkbox id="r2" text="小米社区" checked="true" />
+    <checkbox id="r3" text="掌上穿越火线" checked="true" />
     <button id="start" text="开始运行" />
     <button id="con" text="打开console" />
   </vertical>
@@ -32,6 +34,9 @@ ui.start.on("click", () => {
     }
     if (ui.r2.isChecked()) {
       threads.start(xmsq);
+    }
+    if (ui.r3.isChecked()) {
+      threads.start(zscf);
     }
     device.keepScreenOn()//保持屏幕常亮
   } else {
@@ -75,6 +80,15 @@ function xmsq() {
   lock.lock();
   while (running != null) { };
   running = threads.start(xiaomishequ.start);
+  lock.unlock();
+  running.join();
+  running = null;
+}
+
+function zscf() {
+  lock.lock();
+  while (running != null) { };
+  running = threads.start(zhangshangcf.start);
   lock.unlock();
   running.join();
   running = null;
