@@ -22,7 +22,7 @@ daojucheng.start = function () {
     sleep(500);
     var jd = className("android.view.View").desc("我的聚豆").findOne();
     console.log("点击我的聚豆");
-    console.log(jd.bounds().centerX(), jd.bounds().centerY());
+    //console.log(jd.bounds().centerX(), jd.bounds().centerY());
     sleep(500);
     click(jd.bounds().centerX(), jd.bounds().centerY());
 
@@ -34,7 +34,7 @@ daojucheng.start = function () {
     if (desc("更多聚豆任务").exists()) {
         var t2 = desc("更多聚豆任务").findOne();
         console.log("点击更多聚豆任务");
-        console.log(t2.bounds().centerX(), t2.bounds().centerY());
+        //console.log(t2.bounds().centerX(), t2.bounds().centerY());
         sleep(500);
         click(t2.bounds().centerX(), t2.bounds().centerY());
 
@@ -42,8 +42,6 @@ daojucheng.start = function () {
     sleep(2000);
 
 
-    youlixiang();//有理想
-    sleep(3000);
     libaodaren();//礼包达人
     sleep(3000);
     xianshihuodong();//限时活动
@@ -52,6 +50,10 @@ daojucheng.start = function () {
     sleep(3000);
     huodongzhongxin();//打卡活动中心
     sleep(3000);
+    youlixiang();//有理想
+    sleep(3000);
+    endtest();//检测未领取
+    sleep(1000);
 
     dakaibaoxiang();//打开宝箱1
     sleep(3000);
@@ -70,12 +72,12 @@ daojucheng.start = function () {
 
 function libaodaren() {
     if (desc("礼包达人").exists()) {
-        var task1 = desc("礼包达人").findOne();
+        var title = desc("礼包达人").findOne();
         console.log("礼包达人");
-        console.log(task1.bounds().top, task1.bounds().bottom);
+        console.log(title.bounds().top, title.bounds().bottom);
         sleep(500);
-        if (desc("去完成").boundsInside(1087, task1.bounds().top, 1335, task1.bounds().top + 157).exists()) {
-            var go1 = desc("去完成").boundsInside(1087, task1.bounds().top, 1335, task1.bounds().top + 157).findOne();
+        if (desc("去完成").boundsInside(1087, title.bounds().top, 1335, title.bounds().top + 157).exists()) {
+            var go1 = desc("去完成").boundsInside(1087, title.bounds().top, 1335, title.bounds().top + 157).findOne();
             go1.click();
             sleep(2000);
             var sy = desc("手游").findOne();
@@ -102,10 +104,10 @@ function libaodaren() {
             sleep(2000);
         }
         sleep(2000);
-        task1 = desc("礼包达人").findOne();
+        title = desc("礼包达人").findOne();
         sleep(300);
-        if (desc("领取奖励").boundsInside(1050, task1.bounds().top, 1350, task1.bounds().top + 157).exists()) {
-            desc("领取奖励").boundsInside(1050, task1.bounds().top, 1350, task1.bounds().top + 157).click();
+        if (desc("领取奖励").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).exists()) {
+            desc("领取奖励").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).click();
             sleep(2000);
             desc("开心收下").click();
         }
@@ -125,17 +127,18 @@ function liulanhuodong() {
             go.click();
             sleep(2000);
             console.log("浏览活动1");
-            click(device.width / 2, 1104);
+            click(393,476);//点击左上角滚动活动
             sleep(3000);
             back();
             sleep(2000);
             console.log("浏览活动2");
-            click(device.width / 2, 2217);
+            click(device.width / 2, 1104);
             sleep(3000);
             back();
             sleep(2000);
             console.log("浏览活动3");
-            click(device.width / 2, 3100);
+            click(device.width / 2, 2217);
+            //click(device.width / 2, 3100);
             sleep(3000);
             back();
             sleep(2000);
@@ -273,5 +276,14 @@ function youlixiang() {
     }
 }
 
+function endtest(){
+    if (desc("领取奖励").exists()) {
+        console.log("领取奖励");
+        desc("领取奖励").click();
+        sleep(2000);
+        desc("开心收下").click();
+    }
+    sleep(300);
+}
 
 module.exports = daojucheng;
