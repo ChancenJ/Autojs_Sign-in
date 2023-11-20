@@ -20,12 +20,11 @@ zhangshangcf.start = function () {
     go.click();
     console.log("进入签到页面");
     sleep(2000);
-    if (textContains("点击签到").exists()) {
-        var qd = textContains("点击签到").findOne().parent();
-        toastLog("点击签到")
-        qd.click();
-        sleep(2000);
-    }
+    var qd = textContains("点击签到").findOne().parent();
+    toastLog("点击签到")
+    qd.click();
+    sleep(2000);
+    
     if (textContains("已签到").exists()) {
         toastLog("签到成功");
         sleep(1000);

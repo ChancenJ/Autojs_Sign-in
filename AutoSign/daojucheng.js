@@ -229,6 +229,9 @@ function youlixiang() {
             var go = desc("去完成").boundsInside(1050, title.bounds().top, 1350, title.bounds().top + 157).findOne();
             go.click();
             sleep(3000);
+            var wyxy = boundsInside(303,2017,1122,2268).clickable(true).findOne();
+            wyxy.click();
+            sleep(2000);
             var sy = desc("手游").findOne();
             click(sy.bounds().centerX(), sy.bounds().centerY());
             sleep(2000);
